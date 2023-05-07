@@ -42,10 +42,17 @@ button:hover {
 </head>
 <body>
     <h1>Hobelwerk new construction</h1>
+
+    <h2>Material analysis</h2>
+    <button id="button_mat_component" onclick="loadMatSunburst('Hobelwerk_share_materials.html'); setActiveButtonsMatSunBurst('button_mat_component')">By building component</button>
+    <button id="button_mat_ebkp" onclick="loadMatSunburst('Hobelwerk_share_materials_ebkp.html'); setActiveButtonsMatSunBurst('button_mat_ebkp')">By e-BKP category</button>
+
+    <iframe id="material_sunburst"  src="Hobelwerk_share_materials.html" style="width: 100%; height: 700px; border: 0">  </iframe>
+
     <h2>Effective and avoided LCA impacts</h2>
 
-    <button id="button_1_ad" onclick="loadPage('Hobelwerk_building_impacts_table_actual.html'); setActiveButton('button_1_ad')">Actual design</button>
-    <button id="button_1_nv" onclick="loadPage('Hobelwerk_building_impacts_table_only_new.html'); setActiveButton('button_1_nv')">"Only new" variant</button>
+    <button id="button_1_ad" onclick="loadBuildingImpTable('Hobelwerk_building_impacts_table_actual.html'); setActiveButtonsBImpTable('button_1_ad')">Actual design</button>
+    <button id="button_1_nv" onclick="loadBuildingImpTable('Hobelwerk_building_impacts_table_only_new.html'); setActiveButtonsBImpTable('button_1_nv')">"Only new" variant</button>
     <iframe id="building-lca" style="width: 100%; height: 300px; border: 0">  </iframe>
 
     <h2>Supply chain of reused components</h2>
@@ -54,12 +61,27 @@ button:hover {
     <a href="https://github.com/LESBAT-HEIG-VD/Reuse-LCA-Hobelwerk">Code on github</a>
 
     <script>
-    function loadPage(url) {
+    function loadMatSunburst(url) {
+      document.getElementById("material_sunburst").src = url;
+    }
+    function loadBuildingImpTable(url) {
       document.getElementById("building-lca").src = url;
     }
-    function setActiveButton(buttonId) {
+
+    function setActiveButtonsBImpTable(buttonId) {
       // Remove the "active" class from all buttons
-      var buttons = document.getElementsByTagName("button");
+      var buttons = document.querySelectorAll("#button_1_ad, #button_1_nv");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+
+      // Add the "active" class to the clicked button
+      var button = document.getElementById(buttonId);
+      button.classList.add("active");
+    }
+    function setActiveButtonsMatSunBurst(buttonId) {
+      // Remove the "active" class from all buttons
+      var buttons = document.querySelectorAll("#button_mat_component, #button_mat_ebkp");
       for (var i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove("active");
       }
@@ -69,11 +91,12 @@ button:hover {
       button.classList.add("active");
     }
 
-
     // Load the default page when the page first loads
     window.onload = function() {
-      loadPage('Hobelwerk_building_impacts_table_actual.html');
-      setActiveButton("button_1_ad")
+      loadBuildingImpTable('Hobelwerk_building_impacts_table_actual.html');
+      setActiveButtonsBImpTable("button_1_ad");
+      loadMatSunburst('Hobelwerk_share_materials.html');
+      setActiveButtonsMatSunBurst("button_mat_component");
     };
     </script>
 </body>
