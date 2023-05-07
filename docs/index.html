@@ -12,7 +12,30 @@ h3  {font-family: sans-serif;
     color: #191970;}
 p   {font-family: sans-serif;
     color: #191970;}
+button {
+    background-color: #d8d8e3;
+    border: none;
+    padding: 10px 20px;
+    color: #191970;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    }
+    /* Style for the active button */
+.active {
+    background-color: #191970;
+    border: 2px solid #b0acac;
+    color: white;
 
+}
+button:hover {
+    background-color: #6e6e9b;
+    color: white;
+}
 </style>
     <meta charset="UTF-8">
     <title>ReuseLCA - Hobelwerk new construction</title>
@@ -21,8 +44,8 @@ p   {font-family: sans-serif;
     <h1>Hobelwerk new construction</h1>
     <h2>Effective and avoided LCA impacts</h2>
 
-    <button onclick="loadPage('Hobelwerk_building_impacts_table_actual.html')">Actual design</button>
-    <button onclick="loadPage('Hobelwerk_building_impacts_table_only_new.html')">"Only new" variant</button>
+    <button id="button_1_ad" onclick="loadPage('Hobelwerk_building_impacts_table_actual.html'); setActiveButton('button_1_ad')">Actual design</button>
+    <button id="button_1_nv" onclick="loadPage('Hobelwerk_building_impacts_table_only_new.html'); setActiveButton('button_1_nv')">"Only new" variant</button>
     <iframe id="building-lca" style="width: 100%; height: 300px; border: 0">  </iframe>
 
     <h2>Supply chain of reused components</h2>
@@ -34,9 +57,23 @@ p   {font-family: sans-serif;
     function loadPage(url) {
       document.getElementById("building-lca").src = url;
     }
+    function setActiveButton(buttonId) {
+      // Remove the "active" class from all buttons
+      var buttons = document.getElementsByTagName("button");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+
+      // Add the "active" class to the clicked button
+      var button = document.getElementById(buttonId);
+      button.classList.add("active");
+    }
+
+
     // Load the default page when the page first loads
     window.onload = function() {
       loadPage('Hobelwerk_building_impacts_table_actual.html');
+      setActiveButton("button_1_ad")
     };
     </script>
 </body>
