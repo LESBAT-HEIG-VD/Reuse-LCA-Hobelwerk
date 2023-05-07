@@ -26,57 +26,43 @@
       margin-bottom: 40px;
     }
 
-    .description img {
-      max-width: 100%;
-      height: auto;
-    }
+    body    {background-color: #ffffff;
+        font-family: sans-serif;}
+    h1  {font-family: sans-serif;
+        color: #6e6e9b;}
+    h2  {font-family: sans-serif;
+        color: #191970;
+        margin-bottom: 20px;}
+    h3  {font-family: sans-serif;
+        color: #191970;}
+    p   {font-family: sans-serif;
+        color: #191970;
+        font-size: 16px;
+        margin-bottom: 10px;}
+    /*img {max-width: 100%;*/
+    /*    height: auto;}*/
+    button {
+        background-color: #d8d8e3;
+        border: none;
+        padding: 9px 19px;
+        color: #191970;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin: 2px 2px;
+        cursor: pointer;
+        border-radius: 5px;}
 
-    .description h3 {
-      font-size: 18px;
-      margin-top: 10px;
-      margin-bottom: 5px;
-    }
-
-    .description p {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-body    {background-color: #ffffff;
-    font-family: sans-serif;}
-h1  {font-family: sans-serif;
-    color: #6e6e9b;}
-h2  {font-family: sans-serif;
-    color: #191970;
-    margin-bottom: 20px;}
-h3  {font-family: sans-serif;
-    color: #191970;}
-p   {font-family: sans-serif;
-    color: #191970;}
-button {
-    background-color: #d8d8e3;
-    border: none;
-    padding: 9px 19px;
-    color: #191970;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 2px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-    }
     /* Style for the active button */
 .active {
     background-color: #191970;
     border: 2px solid #b0acac;
     color: white;
-
 }
 button:hover {
     background-color: #6e6e9b;
-    color: white;
-}
+    color: white;}
 </style>
     <meta charset="UTF-8">
     <title>ReuseLCA - Hobelwerk new construction</title>
@@ -96,12 +82,17 @@ button:hover {
        <p>Project phase: In progress</p>
     </div>
     <div>
-      <img src="Hobelwerk-photo.jpg" height=550px alt="Building Photo">
+      <img src="Hobelwerk-photo.jpg" height=300px alt="Building Photo">
     </div>
-  </section>
-  <h2>Reuse strategy</h2>
-  <img src="hobelwerk-reuse-map.png" alt="Reuse map" width=900px class="center">
-
+</section>
+<section class="reuse-strat">
+    <div>
+        <h2>Reuse strategy</h2>
+    </div>
+    <div>
+        <img src="hobelwerk-reuse-map.png" alt="Reuse map" width=700px class="center">
+    </div>
+</section>
     <h2>Material mass analysis</h2>
     <button id="button_mat_component" onclick="loadMatSunburst('Hobelwerk_share_materials.html'); setActiveButtonsMatSunBurst('button_mat_component')">Building components</button>
     <button id="button_mat_ebkp" onclick="loadMatSunburst('Hobelwerk_share_materials_ebkp.html'); setActiveButtonsMatSunBurst('button_mat_ebkp')">e-BKP categories</button>
