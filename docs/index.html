@@ -2,12 +2,53 @@
 <html lang="en">
 <head>
 <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background-color: #ffffff;
+      color: #FFFFFF;
+      padding: 10px;
+      text-align: center;
+    }
+    section {
+      padding: 30px;
+    }
+
+     /* Description section styles */
+    .description {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .description img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .description h3 {
+      font-size: 18px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+    .description p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
 body    {background-color: #ffffff;
     font-family: sans-serif;}
 h1  {font-family: sans-serif;
     color: #6e6e9b;}
 h2  {font-family: sans-serif;
-    color: #191970;}
+    color: #191970;
+    margin-bottom: 20px;}
 h3  {font-family: sans-serif;
     color: #191970;}
 p   {font-family: sans-serif;
@@ -41,7 +82,25 @@ button:hover {
     <title>ReuseLCA - Hobelwerk new construction</title>
 </head>
 <body>
-    <h1>Hobelwerk new construction</h1>
+<header>
+      <h1>Hobelwerk - Environmental impact assessment</h1>
+</header>
+<section class="description">
+    <div>
+      <img src="Hobelwerk-photo.jpg" alt="Building Photo">
+    </div>
+   <div>
+    <h2>Description</h2>
+<p>Type of building: Residential and workshops</p>
+      <p>Construction materials: Concrete and wood</p>
+      <p>Square meters: 2261 m²</p>
+      <p>Floors: 3</p>
+      <p>Location: Winterthur (ZH), CH</p>
+      <p>Project phase: In progress</p>
+    </div>
+  </section>
+  <h2>Reuse strategy</h2>
+  <img src="hobelwerk-reuse-map.png" alt="Reuse map" width=900px>
 
     <h2>Material mass analysis</h2>
     <button id="button_mat_component" onclick="loadMatSunburst('Hobelwerk_share_materials.html'); setActiveButtonsMatSunBurst('button_mat_component')">Building components</button>
@@ -60,7 +119,7 @@ button:hover {
     <button id="button_comparison_ubp" onclick="loadBarCompar('Hobelwerk_bar_UBP_reused_components.html'); setActiveButtonsBarCompar('button_comparison_ubp')">Ecological scarcity</button>
     <button id="button_comparison_penr" onclick="loadBarCompar('Hobelwerk_bar_PE-NR_reused_components.html'); setActiveButtonsBarCompar('button_comparison_penr')">Primary energy, non-renewable</button>
 
-    <iframe id="bar_comparison" width="100%" style="width: 100%; height: 450px; border: 0">  </iframe>
+    <iframe id="bar_comparison" width="100%" style="width: 100%; height: 600px; border: 0">  </iframe>
 
     <a href="https://github.com/LESBAT-HEIG-VD/Reuse-LCA-Hobelwerk">Code on github</a>
 
