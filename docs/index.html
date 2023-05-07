@@ -15,12 +15,12 @@ p   {font-family: sans-serif;
 button {
     background-color: #d8d8e3;
     border: none;
-    padding: 10px 20px;
+    padding: 9px 19px;
     color: #191970;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 14px;
     margin: 2px 2px;
     cursor: pointer;
     border-radius: 5px;
@@ -49,15 +49,19 @@ button:hover {
 
     <iframe id="material_sunburst"  src="Hobelwerk_share_materials.html" style="width: 100%; height: 700px; border: 0">  </iframe>
 
-    <h2>Effective and avoided LCA impacts</h2>
+    <h2>Building LCA impacts</h2>
 
     <button id="button_1_ad" onclick="loadBuildingImpTable('Hobelwerk_building_impacts_table_actual.html'); setActiveButtonsBImpTable('button_1_ad')">Actual design</button>
     <button id="button_1_nv" onclick="loadBuildingImpTable('Hobelwerk_building_impacts_table_only_new.html'); setActiveButtonsBImpTable('button_1_nv')">"Only new" variant</button>
     <iframe id="building-lca" style="width: 800px; height: 300px; border: 0">  </iframe>
 
-    <h2>Supply chain of reused components</h2>
-    <h4 style="text-align:center">Figure 1: GHG emissions per kg of reused component, and comparison with newly manufactured components</h4>
-    <iframe src="plot1.html" width="100%" style="width: 100%; height: 450px; border: 0">  </iframe>
+    <h2>LCA of reused components</h2>
+    <button id="button_comparison_gwp" onclick="loadBarCompar('Hobelwerk_bar_GWP_reused_components.html'); setActiveButtonsBarCompar('button_comparison_gwp')">GHG emissions</button>
+    <button id="button_comparison_ubp" onclick="loadBarCompar('Hobelwerk_bar_UBP_reused_components.html'); setActiveButtonsBarCompar('button_comparison_ubp')">"Ecological scarcity</button>
+    <button id="button_comparison_penr" onclick="loadBarCompar('Hobelwerk_bar_PE-NR_reused_components.html'); setActiveButtonsBarCompar('button_comparison_penr')">"Primary energy, non-renewable</button>
+
+    <iframe id="bar_comparison" width="100%" style="width: 100%; height: 450px; border: 0">  </iframe>
+
     <a href="https://github.com/LESBAT-HEIG-VD/Reuse-LCA-Hobelwerk">Code on github</a>
 
     <script>
@@ -67,6 +71,9 @@ button:hover {
     function loadBuildingImpTable(url) {
       document.getElementById("building-lca").src = url;
     }
+    function loadBarCompar(url) {
+      document.getElementById("bar_comparison").src = url;
+    }
 
     function setActiveButtonsBImpTable(buttonId) {
       // Remove the "active" class from all buttons
@@ -74,7 +81,6 @@ button:hover {
       for (var i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove("active");
       }
-
       // Add the "active" class to the clicked button
       var button = document.getElementById(buttonId);
       button.classList.add("active");
@@ -85,7 +91,16 @@ button:hover {
       for (var i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove("active");
       }
-
+      // Add the "active" class to the clicked button
+      var button = document.getElementById(buttonId);
+      button.classList.add("active");
+    }
+    function setActiveButtonsBarCompar(buttonId) {
+      // Remove the "active" class from all buttons
+      var buttons = document.querySelectorAll("#button_comparison_gwp, #button_comparison_ubp, #button_comparison_penr");
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
       // Add the "active" class to the clicked button
       var button = document.getElementById(buttonId);
       button.classList.add("active");
@@ -97,6 +112,8 @@ button:hover {
       setActiveButtonsBImpTable("button_1_ad");
       loadMatSunburst('Hobelwerk_share_materials.html');
       setActiveButtonsMatSunBurst("button_mat_component");
+      loadBarCompar('Hobelwerk_bar_GWP_reused_components.html');
+      setActiveButtonsBarCompar('button_comparison_gwp')
     };
     </script>
 </body>
