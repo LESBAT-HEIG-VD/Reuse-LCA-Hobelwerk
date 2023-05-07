@@ -34,6 +34,10 @@ p   {font-family: sans-serif;
     function loadPage(url) {
       document.getElementById("building-lca").src = url;
     }
+    // Load the default page when the page first loads
+    window.onload = function() {
+      loadPage('Hobelwerk_building_impacts_table_actual.html');
+    };
     </script>
 </body>
 
