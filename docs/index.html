@@ -20,13 +20,21 @@ p   {font-family: sans-serif;
 <body>
     <h1>Hobelwerk new construction</h1>
     <h2>Effective and avoided LCA impacts</h2>
-    <h4 style="text-align:center">Table 1: Building LCA impacts on the construction domain</h4>
-    <iframe src="Hobelwerk_building_impacts_table.html" style="width: 100%; height: 300px; border: 0">  </iframe>
+
+    <button onclick="loadPage('Hobelwerk_building_impacts_table_actual.html')">Actual design</button>
+    <button onclick="loadPage('Hobelwerk_building_impacts_table_only_new.html')">"Only new" variant</button>
+    <iframe id="building-lca" style="width: 100%; height: 300px; border: 0">  </iframe>
 
     <h2>Supply chain of reused components</h2>
     <h4 style="text-align:center">Figure 1: GHG emissions per kg of reused component, and comparison with newly manufactured components</h4>
     <iframe src="plot1.html" width="100%" style="width: 100%; height: 450px; border: 0">  </iframe>
     <a href="https://github.com/LESBAT-HEIG-VD/Reuse-LCA-Hobelwerk">Code on github</a>
+
+    <script>
+    function loadPage(url) {
+      document.getElementById("building-lca").src = url;
+    }
+    </script>
 </body>
 
 </html>

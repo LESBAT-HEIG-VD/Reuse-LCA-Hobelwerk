@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Example</title>
+</head>
+<body>
+
+  <h1>Example</h1>
+
+  <button onclick="loadPage('Hobelwerk_building_impacts_table.html')">Page 1</button>
+  <button onclick="loadPage('index.html')">Page 2</button>
+  <button onclick="loadPage('plot1.html')">Page 3</button>
+
+  <br><br>
+
+  <iframe id="iframe" width="800" height="600"></iframe>
+
+  <script>
+    function loadPage(url) {
+      document.getElementById("iframe").src = url;
+    }
+  </script>
+
+</body>
+</html>
