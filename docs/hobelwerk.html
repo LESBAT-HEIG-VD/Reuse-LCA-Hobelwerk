@@ -22,7 +22,64 @@
             </ul>
         </nav>
     </div>
+    <h1>Hobelwerk - Environmental impact assessment</h1>
 </header>
+<section class="description">
+    <div>
+      <img src="Hobelwerk-photo.jpg" height=300px alt="Building Photo">
+    </div>
+   <div>
+    <h2>Description</h2>
+       <p>Type of building: Residential and workshops</p>
+       <p>Construction materials: Concrete and wood</p>
+       <p>Square meters: 2261 m²</p>
+       <p>Floors: 3</p>
+       <p>Location: Winterthur (ZH), CH</p>
+       <p>Project phase: In progress</p>
+    </div>
+</section>
+<section class="reuse-strat">
+    <div>
+        <h2>Reuse strategy</h2>
+    </div>
+    <div>
+        <p style="text-align:center;"><img src="hobelwerk-reuse-map.png" alt="Reuse map" width=700px></p>
+    </div>
+</section>
+<section class="material-analysis">
+    <div>
+    <h2>Material mass analysis</h2>
+    <button id="button_mat_component" onclick="loadMatSunburst('Hobelwerk_share_materials.html'); setActiveButtonsMatSunBurst('button_mat_component')">Building components</button>
+    <button id="button_mat_ebkp" onclick="loadMatSunburst('Hobelwerk_share_materials_ebkp.html'); setActiveButtonsMatSunBurst('button_mat_ebkp')">e-BKP categories</button>
+
+    <iframe id="material_sunburst"  src="Hobelwerk_share_materials.html" style="width: 100%; height: 700px; border: 0">  </iframe>
+    </div>
+</section>
+<section class="building-impacts">
+    <div>
+    <h2>Building LCA impacts</h2>
+    </div>
+    <div>
+    <button id="button_1_ad" onclick="loadBuildingImpTable('Hobelwerk_building_impacts_table_actual.html'); setActiveButtonsBImpTable('button_1_ad')">Actual design</button>
+    <button id="button_1_nv" onclick="loadBuildingImpTable('Hobelwerk_building_impacts_table_only_new.html'); setActiveButtonsBImpTable('button_1_nv')">"Only new" variant</button>
+    </div>
+    <div>
+    <iframe id="building-lca" style="width: 1000px; height: 300px; border: 0">  </iframe>
+    </div>
+</section>
+<section class="components-impacts">
+    <div>
+    <h2>LCA of reused components</h2>
+    </div>
+    <div>
+    <button id="button_comparison_gwp" onclick="loadBarCompar('Hobelwerk_bar_GWP_reused_components.html'); setActiveButtonsBarCompar('button_comparison_gwp')">GHG emissions</button>
+    <button id="button_comparison_ubp" onclick="loadBarCompar('Hobelwerk_bar_UBP_reused_components.html'); setActiveButtonsBarCompar('button_comparison_ubp')">Ecological scarcity</button>
+    <button id="button_comparison_penr" onclick="loadBarCompar('Hobelwerk_bar_PE-NR_reused_components.html'); setActiveButtonsBarCompar('button_comparison_penr')">Primary energy, non-renewable</button>
+    </div>
+    <div>
+    <iframe id="bar_comparison" width="100%" style="width: 100%; height: 600px; border: 0">  </iframe>
+    </div>
+</section>
 <footer>
     <p>Reuse-LCA - HEIG-VD/LESBAT</p>
     <a href="https://github.com/LESBAT-HEIG-VD/Reuse-LCA-Hobelwerk">Code on github</a>
